@@ -1,0 +1,10 @@
+# dependencies
+node_modules
+
+dist
+
+.next
+
+.docz
+
+package.tw.css

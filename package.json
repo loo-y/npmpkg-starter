@@ -1,0 +1,85 @@
+{
+    "name": "npmpkg-starter",
+    "version": "1.0.0",
+    "description": "npmpkg-starter",
+    "main": "dist/index.js",
+    "module": "dist/index.esm.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "license": "MIT",
+    "exports": {
+        ".": {
+            "import": "./dist/index.esm.js",
+            "require": "./dist/index.js"
+        }
+    },
+    "scripts": {
+        "dev": "next dev -p 3000 demo",
+        "build": "tsc -p tsconfig.build.json && rollup -c",
+        "test": "jest",
+        "test:coverage": "jest --coverage",
+        "demo:install": "cd demo && npm install",
+        "demo:dev": "cd demo && npm run dev",
+        "demo:build": "cd demo && npm run build",
+        "prettierformat": "prettier --write",
+        "prettierall": "prettier --write .",
+        "tailwind:build": "node ./watchtailwind.js",
+        "lint-staged": "lint-staged",
+        "docz:dev": "npm-run-all tailwind:build;docz dev",
+        "docz:build": "npm-run-all tailwind:build; docz build",
+        "docz:serve": "npm-run-all tailwind:build; docz build && docz serve"
+    },
+    "precommit": "lint-staged",
+    "lint-staged": {
+        "src/**/*.{js,jsx,ts,tsx}": [
+            "npm run prettierformat",
+            "git add ."
+        ]
+    },
+    "peerDependencies": {
+        "react": "^17.0.0 || ^18.0.0",
+        "react-dom": "^17.0.0 || ^18.0.0",
+        "tailwindcss": "^3.0.0"
+    },
+    "repository": "https://github.com/loo-y/npmpkg-starter",
+    "author": "Erik Loo",
+    "devDependencies": {
+        "@emotion/core": "10.1.1",
+        "@emotion/react": "11.13.3",
+        "@rollup/plugin-commonjs": "^22.0.0",
+        "@rollup/plugin-node-resolve": "^13.3.0",
+        "@rollup/plugin-typescript": "^8.3.3",
+        "@testing-library/jest-dom": "^5.16.0",
+        "@testing-library/react": "^13.0.0",
+        "@types/jest": "^27.0.0",
+        "@types/lodash": "4.17.7",
+        "@types/react": "^18.0.0",
+        "@types/react-dom": "^18.0.0",
+        "autoprefixer": "10.4.20",
+        "chokidar": "3.5.3",
+        "docz": "2.4.0",
+        "glob": "11.0.0",
+        "jest": "^27.0.0",
+        "lint-staged": "15.2.9",
+        "next": "14.2.6",
+        "npm-run-all": "4.1.5",
+        "postcss": "8.4.41",
+        "pre-commit": "1.2.2",
+        "prettier": "3.3.3",
+        "react": "18.3.1",
+        "react-dom": "18.3.1",
+        "rollup": "^2.79.1",
+        "rollup-plugin-peer-deps-external": "^2.2.4",
+        "rollup-plugin-postcss": "4.0.2",
+        "tailwindcss": "3.4.10",
+        "ts-jest": "^27.0.0",
+        "tslib": "2.7.0",
+        "typescript": "4.9.5"
+    },
+    "dependencies": {
+        "lodash": "4.17.21",
+        "lucide-react": "0.429.0"
+    }
+}
