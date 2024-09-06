@@ -3,6 +3,10 @@ export default {
     typescript: true,
     port: 3001,
     files: [
-        '**/*.{markdown,mdx}',
+        '**/*.{markdown,mdx,md}',
+    ],
+    ignore: [
+        'README.md',
+        'readme.md',
     ]
 }
